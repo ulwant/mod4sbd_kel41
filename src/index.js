@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..'))); // ← ini yang diubah
+app.use(express.static(path.join(__dirname, '../public'))); // ← ini yang diubah
 
 // Grouping Routes
 app.use('/api/books', bookRoutes);
@@ -28,7 +28,9 @@ app.use('/api/authors', authorRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/reports', reportRoutes);
 
-app.get('/', (req, res) => res.send('Smart Library API is Running...'));
+app.get('/{*path}', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 
