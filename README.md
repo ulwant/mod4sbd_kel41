@@ -1,5 +1,37 @@
 # Smart Library API
 
+Simple RESTful API for a library management system. This repository contains an Express backend and a small static frontend in `public/`.
+
+## Run locally
+
+1. Copy environment example:
+
+```bash
+cp .env.example .env
+# edit .env and set your DATABASE_URL
+```
+
+2. Install and run:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` to view the frontend.
+
+## Deploy to Vercel
+
+1. Push this repository to GitHub.
+2. Import the repo in Vercel dashboard.
+3. In Project Settings → Environment Variables, add `DATABASE_URL` with your Postgres URL.
+4. Deploy (Vercel will use `src/index.js` as the server entry).
+
+Notes:
+- Do NOT commit `.env` or other secrets. `.gitignore` already excludes `.env`.
+- The server is configured to serve `public/` via `express.static()` and is Vercel-compatible.
+# Smart Library API
+
 Aplikasi RESTful API untuk Sistem Manajemen Perpustakaan Pintar (Smart Library). API ini melayani pendataan buku, penulis, kategori, anggota perpustakaan, hingga transaksi peminjaman buku.
 
 ## Teknologi yang Digunakan
