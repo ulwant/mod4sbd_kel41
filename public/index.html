@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Library - Sistem Peminjaman Buku-</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Smart Library-KEL41</h1>
+            <p>Sistem Manajemen Perpustakaan Digital</p>
+        </header>
+
+        <!-- Section Top Books -->
+        <section class="top-books-section">
+            <h2>⭐ Top 2 Buku Paling Sering Dipinjam</h2>
+            <div class="top-books-container" id="topBooksContainer">
+                <p class="loading">Memuat data...</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Books List Section -->
+            <section class="books-section">
+                <h2>📖 Daftar Buku Perpustakaan</h2>
+                <div class="form-group" style="display:flex;gap:8px;margin-bottom:12px;align-items:center;">
+                    <select id="searchType" style="padding:8px;border-radius:4px;border:1px solid #ddd;">
+                        <option value="books" selected>Buku (title)</option>
+                        <option value="authors">Penulis (name)</option>
+                        <option value="categories">Kategori (name)</option>
+                    </select>
+                    <input type="text" id="searchQuery" placeholder="Cari..." style="flex:1;padding:8px;border-radius:4px;border:1px solid #ddd;" />
+                    <button id="searchBtn" class="btn" style="width:auto;">Cari</button>
+                    <button id="clearSearchBtn" class="btn" style="width:auto;background:#bdc3c7;color:#fff;">Reset</button>
+                </div>
+                <div class="books-grid" id="booksGrid">
+                    <p class="loading">Memuat daftar buku...</p>
+                </div>
+            </section>
+
+            <!-- Forms Section -->
+            <section class="forms-section">
+                <div class="form-container">
+                    <h3>➕ Peminjaman Buku</h3>
+                    <form id="borrowForm">
+                        <div class="form-group">
+                            <label for="borrowIsbn">ISBN Buku:</label>
+                            <input type="text" id="borrowIsbn" required placeholder="Masukkan ISBN buku">
+                        </div>
+                        <div class="form-group">
+                            <label for="borrowMemberEmail">Email Member:</label>
+                            <input type="email" id="borrowMemberEmail" required placeholder="Masukkan email member">
+                        </div>
+                        <div class="form-group">
+                            <label for="borrowDueDate">Tanggal Pengembalian:</label>
+                            <input type="date" id="borrowDueDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-borrow">Pinjam Buku</button>
+                    </form>
+                </div>
+
+                <div class="form-container">
+                    <h3>↩️ Pengembalian Buku</h3>
+                    <form id="returnForm">
+                        <div class="form-group">
+                            <label for="returnMemberEmail">Email Member:</label>
+                            <input type="email" id="returnMemberEmail" required placeholder="Masukkan email member">
+                        </div>
+                        <div class="form-group">
+                            <label for="returnLoanId">ID Peminjaman:</label>
+                            <input type="text" id="returnLoanId" required placeholder="Masukkan ID peminjaman (boleh paste UUID)">
+                        </div>
+                        <div class="form-group">
+                            <label for="returnDate">Tanggal Pengembalian:</label>
+                            <input type="date" id="returnDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-return">Kembalikan Buku</button>
+                    </form>
+                </div>
+                <div class="form-container">
+                    <h3>🧾 Registrasi Member</h3>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="regFullName">Nama Lengkap:</label>
+                            <input type="text" id="regFullName" required placeholder="Nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email:</label>
+                            <input type="email" id="regEmail" required placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="regType">Tipe Member:</label>
+                            <input type="text" id="regType" required placeholder="STUDENT / FACULTY / STAFF">
+                        </div>
+                        <button type="submit" class="btn">Daftar Member</button>
+                    </form>
+                    <div id="memberResult" style="margin-top:10px;"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <!-- Loan ID Modal -->
+    <div id="loanModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="modalClose" class="modal-close">&times;</span>
+            <h3>Informasi Peminjaman</h3>
+            <div id="loanInfo"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

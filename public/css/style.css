@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --light-bg: #ecf0f1;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: var(--text-light);
+    font-size: 1.1em;
+}
+
+/* Top Books Section */
+.top-books-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.top-books-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.top-books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.top-book-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.top-book-rank {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.top-book-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.top-book-info {
+    font-size: 0.95em;
+    margin: 5px 0;
+    opacity: 0.95;
+}
+
+.top-book-count {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+/* Books Section */
+.books-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.books-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background: var(--white);
+    border: 2px solid var(--light-bg);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    transform: translateY(-3px);
+}
+
+.book-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.book-info {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin: 5px 0;
+}
+
+.book-info strong {
+    color: var(--text-dark);
+}
+
+.stock-available {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 0.85em;
+}
+
+.stock-available.in-stock {
+    background: rgba(39, 174, 96, 0.2);
+    color: var(--success-color);
+}
+
+.stock-available.low-stock {
+    background: rgba(243, 156, 18, 0.2);
+    color: var(--warning-color);
+}
+
+.stock-available.out-of-stock {
+    background: rgba(231, 76, 60, 0.2);
+    color: var(--accent-color);
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-light);
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Forms Section */
+.forms-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-container {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-bg);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-borrow {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.btn-borrow:hover {
+    background: #229954;
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-return {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-return:hover {
+    background: #c0392b;
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+}
+
+.notification.show {
+    display: block;
+}
+
+.notification.success {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.notification.error {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.notification.info {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .top-books-container {
+        grid-template-columns: 1fr;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .top-books-section h2,
+    .books-section h2 {
+        font-size: 1.4em;
+    }
+}
+
+/* Modal for loan info */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+}
+
+.modal-close {
+    float: right;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+#loanInfo p { margin: 8px 0; }
+
+.form-container #memberResult { color: var(--success-color); font-weight: 600; margin-top: 8px; }
